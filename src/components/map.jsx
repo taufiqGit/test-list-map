@@ -18,8 +18,9 @@ export default function Map({ listMap }) {
           />
           {listMap.map((cord) => (
             <Circle
+              key={cord.id}
               center={[cord.latitude, cord.longtitude]}
-              pathOptions={{ color: "red" }}
+              pathOptions={{ color: "#295bf2" }}
               radius={cord.radius}
             ></Circle>
           ))}

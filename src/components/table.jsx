@@ -1,8 +1,7 @@
-export default function Table({ listMap, setListMap }) {
+export default function Table({ listMap, setListMap, setFormIsEdit }) {
   const handleDelete = (id) => {
     setListMap((cords) => cords.filter((val) => val.id !== id));
   };
-
   return (
     <section className="antialiased  text-gray-600 mt-8">
       <div className="flex flex-col justify-center h-full">
@@ -53,8 +52,16 @@ export default function Table({ listMap, setListMap }) {
                       <td className="p-2 whitespace-nowrap">
                         <div className="text-lg text-center">
                           <button
+                            onClick={() =>
+                              setFormIsEdit({ status: true, id: cord.id })
+                            }
+                            className="py-1 px-2 text-sm rounded-md bg-yellow-500 text-white"
+                          >
+                            edit
+                          </button>
+                          <button
                             onClick={() => handleDelete(cord.id)}
-                            className="py-1 px-2 text-sm rounded-md bg-red-500 text-white"
+                            className="py-1 px-2 ml-1 text-sm rounded-md bg-red-500 text-white"
                           >
                             delete
                           </button>
